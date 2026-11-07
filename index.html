@@ -15,9 +15,9 @@
 
         <header class="topbar">
             <div>
-                <p class="eyebrow">YOUR LITTLE CORNER OF THE WORLD ♡</p>
-                <h1>Hey, beautiful! <span>✿</span></h1>
-                <p class="subtitle">A little progress every day is still progress.</p>
+                <p class="eyebrow">YOUR LITTLE CORNER OF THE WORLD</p>
+                <h1>Beautiful <span>♡</span></h1>
+                <p class="subtitle">A little space for everything you love.</p>
             </div>
 
             <button class="profile-button" id="profileButton">
@@ -30,25 +30,190 @@
             </button>
         </header>
 
-        <section class="profile-panel card hidden" id="profilePanel">
-            <button class="close-button" id="closeProfile" aria-label="Close profile">×</button>
-            <div class="avatar big-avatar">P</div>
-            <h2>A little about me ♡</h2>
-            <p class="muted">Your space, your story.</p>
+        <section class="profile-panel profile-page card hidden" id="profilePanel">
+            <div class="profile-page-nav">
+                <button class="home-button" type="button" id="closeProfile" aria-label="Back to Beautiful home">
+                    <span aria-hidden="true">‹</span> Home
+                </button>
+                <span class="profile-page-kicker">MY LITTLE PINTEREST SPACE</span>
+                <span class="profile-scrap-star" aria-hidden="true">✦</span>
+            </div>
 
-            <label for="profileName">Your name</label>
-            <input id="profileName" type="text" placeholder="What should we call you?">
+            <div class="profile-hero">
+                <div class="profile-photo-wrap">
+                    <div class="profile-photo-frame" id="profilePhotoFrame">
+                        <div class="avatar big-avatar" id="profileAvatar">P</div>
+                        <img id="profilePhoto" class="hidden" alt="Profile photo">
+                    </div>
+                    <label class="profile-photo-change" for="profilePhotoFile">Change photo</label>
+                    <input id="profilePhotoFile" type="file" accept="image/jpeg,image/png,image/webp" hidden>
+                </div>
+                <div class="profile-intro">
+                    <p class="eyebrow">ABOUT ME</p>
+                    <h2 id="profileDisplayName">A little about me ♡</h2>
+                    <p class="profile-bio-preview" id="profileBioPreview">Your space, your story.</p>
+                    <span class="profile-ribbon">made with little joys</span>
+                </div>
+                <div class="profile-flower" aria-hidden="true">✿</div>
+            </div>
 
-            <label for="profileAbout">A little about you</label>
-            <textarea id="profileAbout" rows="3" placeholder="Your dreams, goals, and little joys..."></textarea>
+            <div class="profile-editor card">
+                <div class="profile-editor-heading">
+                    <div><p class="eyebrow">EDIT YOUR PAGE</p><h3>Make it feel like you</h3></div>
+                    <span aria-hidden="true">♡</span>
+                </div>
+                <div class="profile-editor-grid">
+                    <div>
+                        <label for="profileName">Your name</label>
+                        <input id="profileName" type="text" placeholder="What should we call you?">
+                    </div>
+                    <div>
+                        <label for="profileGoal">A current goal</label>
+                        <input id="profileGoal" type="text" placeholder="Something you're growing toward...">
+                    </div>
+                    <div class="profile-editor-wide">
+                        <label for="profileAbout">Short bio</label>
+                        <textarea id="profileAbout" rows="2" maxlength="240" placeholder="A few lovely words about you..."></textarea>
+                    </div>
+                    <div>
+                        <label for="profileColors">Favourite colours</label>
+                        <input id="profileColors" type="text" placeholder="Blush, cream, lavender...">
+                    </div>
+                    <div>
+                        <label for="profileMoments">Little moments</label>
+                        <input id="profileMoments" type="text" placeholder="Coffee, sunsets, slow mornings...">
+                    </div>
+                </div>
+                <button class="primary-button" id="saveProfile" type="button">Save my profile ♡</button>
+                <p class="save-status" id="profileSaveStatus" role="status"></p>
+            </div>
 
-            <label for="profileGoal">My current goal</label>
-            <input id="profileGoal" type="text" placeholder="e.g. Learn something new every day">
+            <div class="profile-details-grid">
+                <div class="profile-detail-card card">
+                    <p class="eyebrow">FAVOURITE COLOURS</p>
+                    <strong id="profileColorsDisplay">Blush, cream, lavender</strong>
+                </div>
+                <div class="profile-detail-card card">
+                    <p class="eyebrow">LITTLE MOMENTS</p>
+                    <strong id="profileMomentsDisplay">Coffee, sunsets, slow mornings</strong>
+                </div>
+            </div>
 
-            <button class="primary-button" id="saveProfile">Save my profile ♡</button>
+            <div class="profile-content-grid">
+                <div class="profile-list-card card">
+                    <div class="profile-card-heading"><h3>My interests</h3><span>✦</span></div>
+                    <form id="interestForm" class="profile-add-form">
+                        <input id="interestInput" type="text" maxlength="50" placeholder="Add an interest..." required>
+                        <button class="add-button" type="submit" aria-label="Add interest">+</button>
+                    </form>
+                    <div class="profile-chip-list" id="interestList"></div>
+                    <p class="empty-message" id="interestEmpty">Add the things that make you curious. ♡</p>
+                </div>
+                <div class="profile-list-card card">
+                    <div class="profile-card-heading"><h3>Favourite things</h3><span>♡</span></div>
+                    <form id="favoriteForm" class="profile-add-form">
+                        <input id="favoriteInput" type="text" maxlength="60" placeholder="A book, song, place..." required>
+                        <button class="add-button" type="submit" aria-label="Add favourite thing">+</button>
+                    </form>
+                    <div class="profile-chip-list" id="favoriteList"></div>
+                    <p class="empty-message" id="favoriteEmpty">Keep your little favourites close. ♡</p>
+                </div>
+            </div>
+
+            <div class="profile-moodboard card">
+                <div class="profile-card-heading">
+                    <div><p class="eyebrow">A LITTLE COLLAGE</p><h3>My mood board</h3></div>
+                    <span>✿</span>
+                </div>
+                <form id="moodboardForm" class="moodboard-form">
+                    <input id="moodboardTitle" type="text" maxlength="60" placeholder="Name this little moment..." required>
+                    <input id="moodboardUrl" type="url" placeholder="Paste an image URL (optional)">
+                    <label class="compact-upload" for="moodboardFile">📷 Add a photo</label>
+                    <input id="moodboardFile" type="file" accept="image/jpeg,image/png,image/webp" hidden>
+                    <button class="primary-button" type="submit">Add to my board ♡</button>
+                </form>
+                <p class="save-status" id="moodboardStatus" role="status"></p>
+                <div class="profile-moodboard-grid" id="moodboardGrid"></div>
+                <p class="empty-message" id="moodboardEmpty">Your pretty little inspirations will bloom here. ♡</p>
+            </div>
         </section>
 
         <main>
+            <section class="dashboard-home" id="dashboardHome" aria-label="Beautiful features">
+                <div class="dashboard-heading">
+                    <div>
+                        <p class="eyebrow">A LITTLE PLACE TO LAND</p>
+                        <h2>What would you like to open?</h2>
+                    </div>
+                    <label class="dashboard-search">
+                        <span aria-hidden="true">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"></circle><path d="m16 16 4 4"></path></svg>
+                        </span>
+                        <input id="featureSearch" type="search" placeholder="Find a feature..." aria-label="Find a feature">
+                    </label>
+                </div>
+                <div class="homepage-quote" aria-live="polite">
+                    <span class="homepage-quote-mark" aria-hidden="true">✦</span>
+                    <blockquote id="homepageDailyQuote"></blockquote>
+                    <span class="homepage-quote-heart" aria-hidden="true">♡</span>
+                </div>
+                <div class="feature-grid" id="featureGrid">
+                    <button class="feature-tile tile-rose" type="button" data-feature-target="myMonth" data-feature-name="my month monthly memories archive">
+                        <span class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"></rect><path d="M8 3v4M16 3v4M3 10h18M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"></path></svg></span>
+                        <strong>My Month</strong><small>Little memories</small>
+                    </button>
+                    <button class="feature-tile tile-cream" type="button" data-feature-target="inspiration" data-feature-name="daily inspiration quotes reminder">
+                        <span class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 1.7 5.3L19 10l-5.3 1.7L12 17l-1.7-5.3L5 10l5.3-1.7L12 3Z"></path><path d="m19 16 .7 2.3L22 19l-2.3.7L19 22l-.7-2.3L16 19l2.3-.7L19 16Z"></path></svg></span>
+                        <strong>Daily Inspiration</strong><small>A little reminder</small>
+                    </button>
+                    <button class="feature-tile tile-lavender" type="button" data-feature-target="periodTracker" data-feature-name="period tracker cycle symptoms">
+                        <span class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c4 4 7 7.1 7 11a7 7 0 0 1-14 0c0-3.9 3-7 7-11Z"></path><path d="M9 15c.4 1.2 1.4 2 3 2"></path></svg></span>
+                        <strong>Period Tracker</strong><small>Care for your rhythm</small>
+                    </button>
+                    <button class="feature-tile tile-peach" type="button" data-feature-target="happiness" data-feature-name="happiness wall happy moments">
+                        <span class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12.5V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h7"></path><path d="m4 16 4-4 3 3 2-2 3 3M17 17v4M15 19h4"></path></svg></span>
+                        <strong>Happiness Wall</strong><small>Keep the good things</small>
+                    </button>
+                    <button class="feature-tile tile-pink" type="button" data-feature-target="mood" data-feature-name="mood diary feelings">
+                        <span class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"></circle><path d="M9 10h.01M15 10h.01M8.5 14a5 5 0 0 0 7 0"></path></svg></span>
+                        <strong>Mood Diary</strong><small>Check in with yourself</small>
+                    </button>
+                    <button class="feature-tile tile-cream" type="button" data-feature-target="focus" data-feature-name="study focus timer">
+                        <span class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="13" r="7"></circle><path d="M12 9v4l2 2M9 3h6M12 3v3"></path></svg></span>
+                        <strong>Study Focus</strong><small>One gentle session</small>
+                    </button>
+                    <button class="feature-tile tile-lavender" type="button" data-feature-target="journal" data-feature-name="my journal daily journal thoughts">
+                        <span class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h11a3 3 0 0 1 3 3v13H7a2 2 0 0 1-2-2V4Z"></path><path d="M8 8h7M8 12h7M8 16h4"></path></svg></span>
+                        <strong>My Journal</strong><small>Thoughts and memories</small>
+                    </button>
+                    <button class="feature-tile tile-rose" type="button" data-feature-target="loving" data-feature-name="currently loving collections favorites">
+                        <span class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 8.5c0 5-8 10-8 10s-8-5-8-10a4 4 0 0 1 7-2.6A4 4 0 0 1 20 8.5Z"></path></svg></span>
+                        <strong>Currently Loving</strong><small>Favorites to return to</small>
+                    </button>
+                    <button class="feature-tile tile-peach" type="button" data-feature-target="habits" data-feature-name="habit garden habits">
+                        <span class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20V9M12 13c-3 0-5-2-5-5 3 0 5 2 5 5ZM12 11c0-3 2-5 5-5 0 3-2 5-5 5Z"></path><path d="M7 20h10"></path></svg></span>
+                        <strong>Habit Garden</strong><small>Small things, often</small>
+                    </button>
+                    <button class="feature-tile tile-pink" type="button" data-feature-target="important" data-feature-name="reminders important things">
+                        <span class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4h12v16H6z"></path><path d="M9 8h6M9 12h6M9 16h3"></path></svg></span>
+                        <strong>Daily Lists</strong><small>Reminders and tasks</small>
+                    </button>
+                    <button class="feature-tile tile-cream" type="button" data-feature-target="water" data-feature-name="water hydration">
+                        <span class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3s6 6.1 6 11a6 6 0 0 1-12 0c0-4.9 6-11 6-11Z"></path></svg></span>
+                        <strong>Water Check</strong><small>Little sips of care</small>
+                    </button>
+                    <button class="feature-tile tile-lavender" type="button" data-feature-target="calendar" data-feature-name="calendar notes plans">
+                        <span class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"></rect><path d="M8 3v4M16 3v4M3 10h18M8 14h.01M12 14h.01M16 14h.01"></path></svg></span>
+                        <strong>My Calendar</strong><small>Plans and notes</small>
+                    </button>
+                    <button class="feature-tile tile-rose" type="button" data-feature-target="birthdays" data-feature-name="birthday birthdays reminder reminders">
+                        <span class="feature-icon">🎂</span>
+                        <strong>Birthdays</strong><small>Never miss a little day</small>
+                    </button>
+                </div>
+                <p class="dashboard-empty hidden" id="featureSearchEmpty">No feature found. Try another little search. ♡</p>
+            </section>
+
             <section class="welcome-banner">
                 <div class="banner-text">
                     <span class="pill">A FRESH LITTLE START</span>
@@ -400,6 +565,196 @@
                 </div>
             </section>
 
+            <!-- MY MONTH -->
+            <section class="section-block my-month-section" id="myMonth">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">YOUR LITTLE ARCHIVE</p>
+                        <h2>My Month <span>♡</span></h2>
+                        <p class="muted">Revisit the moods, moments, notes, and little wins you saved.</p>
+                    </div>
+                </div>
+
+                <div class="my-month-toolbar card">
+                    <button class="month-arrow" id="myMonthPrev" type="button" aria-label="Previous month">‹</button>
+                    <h3 id="myMonthTitle">Month Year</h3>
+                    <button class="month-arrow" id="myMonthNext" type="button" aria-label="Next month">›</button>
+                </div>
+
+                <div class="my-month-summary" id="myMonthSummary"></div>
+
+                <div class="my-month-layout">
+                    <div class="card my-month-calendar-card">
+                        <div class="weekdays">
+                            <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span>
+                            <span>Thu</span><span>Fri</span><span>Sat</span>
+                        </div>
+                        <div class="calendar-grid my-month-calendar-grid" id="myMonthCalendarGrid"></div>
+                        <div class="calendar-legend">
+                            <span><i class="legend-today"></i> Today</span>
+                            <span><i class="legend-memory"></i> Saved memory</span>
+                        </div>
+                    </div>
+
+                    <div class="card my-month-day-card">
+                        <p class="eyebrow">DAY BY DAY</p>
+                        <h3 id="myMonthSelectedDate">Select a date</h3>
+                        <div id="myMonthDayMemories"></div>
+                        <p class="empty-message" id="myMonthDayEmpty">Choose a date to see everything saved there. ♡</p>
+                    </div>
+                </div>
+
+                <div class="card my-month-timeline-card">
+                    <div class="section-heading my-month-timeline-heading">
+                        <div>
+                            <p class="eyebrow">MONTHLY MEMORY TIMELINE</p>
+                            <h3>Little moments, in order</h3>
+                        </div>
+                        <span class="my-month-count" id="myMonthTimelineCount"></span>
+                    </div>
+                    <div class="my-month-filters">
+                        <select id="myMonthCategoryFilter" aria-label="Filter memories by category">
+                            <option value="all">All categories</option>
+                        </select>
+                        <input id="myMonthSearch" type="search" placeholder="Search this month..." aria-label="Search this month">
+                    </div>
+                    <div class="my-month-timeline" id="myMonthTimeline"></div>
+                    <p class="empty-message" id="myMonthTimelineEmpty">No saved memories for this month yet. ♡</p>
+                </div>
+            </section>
+
+            <!-- PERIOD TRACKER -->
+            <section class="section-block period-tracker-section" id="periodTracker">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">GENTLE BODY CHECK-IN</p>
+                        <h2>Period Tracker <span>♡</span></h2>
+                        <p class="muted">Private, local, and made for noticing your own rhythm.</p>
+                    </div>
+                </div>
+
+                <div class="tracker-dashboard">
+                    <div class="tracker-stat card">
+                        <span class="tracker-stat-icon">🌷</span>
+                        <small>Next period estimate</small>
+                        <strong id="trackerNextPeriod">Add a period</strong>
+                        <span id="trackerDaysRemaining" class="muted">—</span>
+                    </div>
+                    <div class="tracker-stat card">
+                        <span class="tracker-stat-icon">♡</span>
+                        <small>Current cycle day</small>
+                        <strong id="trackerCycleDay">—</strong>
+                        <span class="muted">Estimated</span>
+                    </div>
+                    <div class="tracker-stat card">
+                        <span class="tracker-stat-icon">☁</span>
+                        <small>Average cycle</small>
+                        <strong id="trackerCycleLength">28 days</strong>
+                        <span class="muted">Based on your records</span>
+                    </div>
+                    <div class="tracker-stat card">
+                        <span class="tracker-stat-icon">✿</span>
+                        <small>Average period</small>
+                        <strong id="trackerPeriodDuration">5 days</strong>
+                        <span class="muted">Based on your records</span>
+                    </div>
+                </div>
+
+                <div class="tracker-layout">
+                    <div class="card tracker-calendar-card">
+                        <div class="calendar-top">
+                            <button class="month-arrow" id="trackerPrevMonth" type="button" aria-label="Previous tracker month">‹</button>
+                            <h3 id="trackerMonthTitle">Month Year</h3>
+                            <button class="month-arrow" id="trackerNextMonth" type="button" aria-label="Next tracker month">›</button>
+                        </div>
+                        <div class="weekdays">
+                            <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span>
+                            <span>Thu</span><span>Fri</span><span>Sat</span>
+                        </div>
+                        <div class="calendar-grid tracker-calendar-grid" id="trackerCalendarGrid"></div>
+                        <div class="calendar-legend tracker-legend">
+                            <span><i class="legend-today"></i> Today</span>
+                            <span><i class="legend-period"></i> Recorded</span>
+                            <span><i class="legend-predicted"></i> Estimated</span>
+                        </div>
+                        <p class="tracker-calendar-hint" id="trackerSelectedDateHint">Select a date to record symptoms.</p>
+                    </div>
+
+                    <div class="card tracker-form-card">
+                        <p class="eyebrow">PERIOD RECORD</p>
+                        <h3 id="trackerFormTitle">Add a period</h3>
+                        <form id="periodRecordForm" class="feature-form">
+                            <input id="periodStartDate" type="date" required aria-label="Period start date">
+                            <input id="periodEndDate" type="date" required aria-label="Period end date">
+                            <div class="tracker-form-actions">
+                                <button class="primary-button" type="submit" id="savePeriodButton">Save period ♡</button>
+                                <button class="secondary-button hidden" type="button" id="cancelPeriodEdit">Cancel edit</button>
+                            </div>
+                        </form>
+                        <p class="save-status" id="periodFormStatus" role="status"></p>
+
+                        <div class="tracker-settings">
+                            <p class="eyebrow">YOUR USUAL RHYTHM</p>
+                            <label for="trackerCycleSetting">Average cycle length (days)</label>
+                            <input id="trackerCycleSetting" type="number" min="15" max="90" value="28">
+                            <label for="trackerDurationSetting">Average period duration (days)</label>
+                            <input id="trackerDurationSetting" type="number" min="1" max="14" value="5">
+                            <button class="secondary-button" type="button" id="saveTrackerSettings">Save settings</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tracker-layout tracker-secondary-layout">
+                    <div class="card tracker-symptoms-card">
+                        <p class="eyebrow">DAILY CHECK-IN</p>
+                        <h3 id="symptomDateTitle">Symptoms for today</h3>
+                        <div class="symptom-options" id="symptomOptions">
+                            <label><input type="checkbox" value="Cramps"> Cramps</label>
+                            <label><input type="checkbox" value="Headache"> Headache</label>
+                            <label><input type="checkbox" value="Acne"> Acne</label>
+                            <label><input type="checkbox" value="Bloating"> Bloating</label>
+                            <label><input type="checkbox" value="Fatigue"> Fatigue</label>
+                            <label><input type="checkbox" value="Back pain"> Back pain</label>
+                            <label><input type="checkbox" value="Breast tenderness"> Breast tenderness</label>
+                        </div>
+                        <label for="trackerMood">Mood</label>
+                        <select id="trackerMood">
+                            <option value="">Choose a mood</option>
+                            <option>Happy</option><option>Sad</option><option>Anxious</option>
+                            <option>Irritated</option><option>Calm</option><option>Tired</option>
+                        </select>
+                        <label for="trackerNotes">Notes</label>
+                        <textarea id="trackerNotes" rows="3" maxlength="500" placeholder="Anything you want to remember..."></textarea>
+                        <button class="primary-button" type="button" id="saveTrackerCheckIn">Save check-in</button>
+                        <p class="save-status" id="trackerCheckInStatus" role="status"></p>
+                    </div>
+
+                    <div class="card tracker-insights-card">
+                        <p class="eyebrow">ESTIMATED FERTILITY</p>
+                        <h3>Your cycle outlook</h3>
+                        <dl class="tracker-insights">
+                            <div><dt>Next period ends</dt><dd id="trackerNextEnd">—</dd></div>
+                            <div><dt>Estimated ovulation</dt><dd id="trackerOvulation">—</dd></div>
+                            <div><dt>Estimated fertile window</dt><dd id="trackerFertileWindow">—</dd></div>
+                            <div><dt>Last period started</dt><dd id="trackerLastStart">—</dd></div>
+                        </dl>
+                        <p class="tracker-disclaimer">These are estimates for personal awareness only, not medical advice or reliable contraception.</p>
+                    </div>
+                </div>
+
+                <div class="card tracker-history-card">
+                    <div class="section-heading tracker-history-heading">
+                        <div><p class="eyebrow">YOUR HISTORY</p><h3>Previous periods</h3></div>
+                        <div class="tracker-data-actions">
+                            <button class="secondary-button" type="button" id="exportTrackerData">Export data</button>
+                            <button class="text-button tracker-delete-button" type="button" id="deleteTrackerData">Delete all data</button>
+                        </div>
+                    </div>
+                    <div class="tracker-history-list" id="trackerHistoryList"></div>
+                    <p class="empty-message" id="trackerHistoryEmpty">Your period history will appear here. ♡</p>
+                </div>
+            </section>
+
             <section class="section-block calendar-section">
                 <div class="section-heading">
                     <div>
@@ -441,6 +796,42 @@
 
                         <button class="primary-button full-button" id="saveNote">Save this note ♡</button>
                         <button class="text-button" id="deleteNote">Clear note</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- BIRTHDAY REMINDERS -->
+            <section class="section-block birthday-section" id="birthdays">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">LITTLE DAYS TO CELEBRATE</p>
+                        <h2>Birthday reminders <span>♡</span></h2>
+                        <p class="muted">Save birthdays once and see who is coming up each year.</p>
+                    </div>
+                </div>
+                <div class="birthday-layout">
+                    <div class="card birthday-form-card">
+                        <div class="card-icon">🎂</div>
+                        <h3>Add a birthday</h3>
+                        <form id="birthdayForm" class="birthday-form">
+                            <label for="birthdayName">Name</label>
+                            <input id="birthdayName" type="text" maxlength="80" placeholder="Who are we celebrating?" required>
+                            <label for="birthdayDate">Birthday</label>
+                            <input id="birthdayDate" type="date" required>
+                            <button class="primary-button" type="submit">Save birthday ♡</button>
+                        </form>
+                        <p class="save-status" id="birthdayStatus" role="status"></p>
+                    </div>
+                    <div class="card birthday-list-card">
+                        <div class="birthday-list-heading">
+                            <div>
+                                <p class="eyebrow">COMING UP</p>
+                                <h3 id="birthdayTodayHeading">Your birthday reminders</h3>
+                            </div>
+                            <span class="birthday-count" id="birthdayCount"></span>
+                        </div>
+                        <div id="birthdayList" class="birthday-list"></div>
+                        <p class="empty-message" id="birthdayEmpty">Add a birthday so the lovely days stay close. ♡</p>
                     </div>
                 </div>
             </section>
